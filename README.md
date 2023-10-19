@@ -18,7 +18,7 @@ Expense Manager solves this problem by providing a simple and easy-to-use way to
 * Easy to use UI with theme toggler
 
 **Showcase Video**
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7120648463033233408" height="540" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+[Linkedin](https://www.linkedin.com/posts/soham-sagathiya_project-showcase-video-expense-manager-activity-7120648495513935872-q_2M?utm_source=share&utm_medium=member_desktop)
 
 
 **Conclusion**
