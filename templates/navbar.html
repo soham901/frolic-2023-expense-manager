@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Expenze</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          {% endif %}
+          </li>
+        </ul>
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary" onclick="toggleTheme(this)" id="theme-toggler">Dark</button>
+          {% if user.is_authenticated %}
+          <a href="/logout" class="btn btn-outline-primary me-2">Logout</a>
+          {% else %}
+          <a href="/login" class="btn btn-outline-primary me-2">Login</a>
+          {% endif %}
+        </d>
+      </div>
+    </div>
+  </nav>
+
+
+  <script>
+    const theme = localStorage.getItem('theme');
+    if(theme){
+      document.body.setAttribute('data-bs-theme', theme);
+      document.querySelector('#theme-toggler').innerText = theme;
+    }
+    else {
+      document.querySelector('#theme-toggler').innerText = "light";
+    }
+    function toggleTheme(e){
+      console.log("clicked", e);
+      const theme = document.body.getAttribute('data-bs-theme');
+      const newTheme = theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', newTheme);
+      document.body.setAttribute('data-bs-theme', newTheme);
+      e.innerText = newTheme;
+    }
+  </script>

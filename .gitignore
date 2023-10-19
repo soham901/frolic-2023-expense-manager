@@ -1,0 +1,5 @@
+core/__pycache__
+core/migrations/__pycache__
+db.sqlite3
+pro/__pycache__
+static

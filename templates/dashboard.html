@@ -1,0 +1,100 @@
+{% include 'base.html' %} {% block content %}
+
+<div class="container mt-4">
+  <div class="list-group">
+    <button
+      type="button"
+      class="list-group-item list-group-item-action active"
+      aria-current="true"
+    >
+      Expenses
+    </button>
+    {% for ex in expences %}
+    <button
+      type="button"
+      class="list-group-item list-group-item-action d-flex justify-content-between"
+    >
+      <div class="fw-bold">
+       <a href="/delete_expense/{{ex.id}}" class="badge bg-danger" style="text-decoration: none;">x</a> {{ex.title|title}}
+      </div>
+      <div class="fw-bold">{{ex.date}}</div>
+      <div class="fw-bold">{{ex.amount}} INR</div>
+    </button>
+    {% endfor %}
+    <button
+      type="button"
+      class="list-group-item list-group-item-action d-flex justify-content-between"
+    >
+      <div class="fw-bold">Total</div>
+      <div class="fw-bold">{{total_expense}} INR</div>
+    </button>
+    <a href="/add_expense" class="btn btn-success">ADD</a>
+  </div>
+</div>
+
+<br />
+<br />
+
+<div class="container">
+  <div class="list-group">
+    <button
+      type="button"
+      class="list-group-item list-group-item-action active"
+      aria-current="true"
+    >
+      Incomes
+    </button>
+    {% for obj in incomes %}
+    <button
+      type="button"
+      class="list-group-item list-group-item-action d-flex justify-content-between"
+    >
+      <div class="fw-bold">
+        <a href="/delete_income/{{obj.id}}" class="badge bg-danger" style="text-decoration: none;">x</a> {{obj.title|title}}
+      </div>
+      <div class="fw-bold">{{obj.date}}</div>
+      <div class="fw-bold">{{obj.amount}} INR</div>
+    </button>
+    {% endfor %}
+    <button
+      type="button"
+      class="list-group-item list-group-item-action d-flex justify-content-between"
+    >
+      <div class="fw-bold">Total</div>
+      <div class="fw-bold">{{total_income}} INR</div>
+    </button>
+    <a href="/add_income" class="btn btn-success">ADD</a>
+  </div>
+</div>
+
+<br />
+<br />
+
+<div class="container">
+  <div class="list-group">
+    <button
+      type="button"
+      class="list-group-item list-group-item-action active"
+      aria-current="true"
+    >
+      Net Amount
+    </button>
+    <button
+      type="button"
+      class="list-group-item list-group-item-action d-flex justify-content-between"
+    >
+      <div class="fw-bold">This Month</div>
+      {% if net_amount > 0 %}
+      <div class="fw-bold text-success">{{net_amount}} INR</div>
+      {% else %}
+      <div class="fw-bold text-danger">{{net_amount}} INR</div>
+      {% endif %}
+    </button>
+  </div>
+</div>
+
+<br />
+<br />
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% include 'base.html' %} {% block content %}
+
+<div
+  class="container d-flex align-items-center flex-column justify-content-center"
+  style="height: 80vh"
+>
+  {% if user.is_authenticated %}
+  <h1 class="display-1 fw-bold ">Hello, {{user.username|title}}</h1>
+  <div class="fs-3 fw-bolder">Welcome to <span class="bg-warning px-3 py-1 rounded-pill ">Expenze</span></div>
+  {% else %}
+  <div class="fs-2 fw-bolder">Start Tracking your Expenses</div>
+  <div class="fs-3">With our <span class="text-warning rounded-pill">Expenze</span></div>
+  <div class=""><a href="/signup" class="btn btn-warning rounded-pill shadow-lg mt-4 fw-bold border" >Let's Start</a></div>
+  {% endif %}
+</div>
+{% endblock %}
